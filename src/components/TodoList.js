@@ -3,16 +3,8 @@ import TodoItem from './TodoItem';
 import TodoForm from './TodoForm';
 
 class TodoList extends React.Component {
-    state = {
-        todos: [
-            {
-                text: "test"
-            },
-            {
-                text: "test54546",
-                completed: true
-            }
-        ]
+    componentDidMount() {
+        this.props.loadTodos();
     }
 
     handleComplete = (todo) => {
@@ -43,7 +35,7 @@ class TodoList extends React.Component {
             <TodoForm onNew={this.handleNew}/>
             <ul>
                 {
-                    this.state.todos.map(todo => <TodoItem 
+                    this.props.todos.map(todo => <TodoItem 
                         key={todo.text} 
                         todo={todo}
                         onComplete={this.handleComplete}

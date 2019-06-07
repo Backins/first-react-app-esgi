@@ -1,0 +1,1 @@
+Voir les components pour le QCM. Sur support de cours ? Ou doc ?
