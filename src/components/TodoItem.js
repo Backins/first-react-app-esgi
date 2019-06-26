@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoItemActions from './TodoItemActions';
+import TodoItemActionsContainer from './TodoItemActionsContainer';
 
 class TodoItem extends React.Component {
     render(){
@@ -8,10 +9,7 @@ class TodoItem extends React.Component {
             backgroundColor:"red"
         }}>
             {this.props.todo.text}
-            <TodoItemActions
-                onComplete={() => this.props.onComplete(this.props.todo)}
-                onDelete={() => this.props.onDelete(this.props.todo)}
-            />
+            <TodoItemActionsContainer todo={this.props.todo}/>
         </li>;
     }
 }

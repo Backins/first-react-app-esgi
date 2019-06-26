@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TodoListContainer from './components/TodoListContainer';
+import TodoItemFormContainer from './components/TodoItemFormContainer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <TodoItemFormContainer/>
       <TodoListContainer/>
     </div>
   );

@@ -7,6 +7,26 @@ const todoReducer = (state = {
                 ...state,
                 todos: action.payload.todos
             }
+        case 'TODOS_DELETE':
+            return {
+                ...state,
+                todos: state.todos.filter(item => action.payload.todo.text !== item.text)
+            }
+        case 'TODOS_COMPLETE':
+            return {
+                ...state,
+                todos: state.todos.map(item => {
+                    if(item.text === action.payload.todo.text) {
+                        item.completed = !item.completed;
+                    }
+                    return item;
+                })
+            }
+        case 'TODOS_NEW':
+            return {
+                ...state,
+                todos: [...state.todos, action.payload.todo]
+            }
         default:
             return state;
     }

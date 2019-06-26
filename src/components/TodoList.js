@@ -4,46 +4,18 @@ import TodoForm from './TodoForm';
 
 class TodoList extends React.Component {
     componentDidMount() {
-        this.props.loadTodos();
-    }
-
-    handleComplete = (todo) => {
-        this.setState({
-            todos: this.state.todos.map(item => {
-                if(item.text === todo.text) {
-                    item.completed = !item.completed;
-                }
-                return item;
-            })
-        });
-    }
-
-    handleDelete = (todo) => {
-        this.setState({
-            todos: this.state.todos.filter(item => todo.text !== item.text)
-        });
-    }
-
-    handleNew = (todo) => {
-        this.setState({
-            todos: [...this.state.todos, todo]
-        });
+        setTimeout(() => this.props.loadTodos(), 2000);
     }
 
     render(){
-        return <>
-            <TodoForm onNew={this.handleNew}/>
-            <ul>
+        return <ul>
                 {
                     this.props.todos.map(todo => <TodoItem 
                         key={todo.text} 
                         todo={todo}
-                        onComplete={this.handleComplete}
-                        onDelete={this.handleDelete}
                     />)
                 }
-            </ul>
-        </>;
+            </ul>;
     }
 }
 
